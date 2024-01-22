@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            background-color: #1E90FF;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            transition: background-color 0.5s ease;
+        }
+
+        #changeColorBtn {
+            padding: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: linear-gradient(to right, #f39c12, #e74c3c);
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            transition: background 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        #changeColorBtn:hover {
+            background: linear-gradient(to right, #1E90FF, #f39c12);
+            transform: scale(1.1);
+        }
+
+        .rotate {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Changer</h1>
+    <div id="colorBox">BLUE</div>
+    <button id="changeColorBtn">Change Color</button>
+
+    <script>
+        const colorBox = document.getElementById("colorBox");
+        const changeColorBtn = document.getElementById("changeColorBtn");
+
+        changeColorBtn.addEventListener('click', function() {
+            changeColorBtn.classList.toggle('rotate');
+
+            if (colorBox.innerHTML === "BLUE") {
+                colorBox.innerHTML = "GREEN";
+                colorBox.style.backgroundColor = "#2ecc71"; // Change to green
+            } else {
+                colorBox.innerHTML = "BLUE";
+                colorBox.style.backgroundColor = "#1E90FF"; // Change to blue
+            }
+        });
+    </script>
+</body>
+</html>
